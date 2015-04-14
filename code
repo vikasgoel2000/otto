@@ -1,0 +1,26 @@
+setwd("C:/Users/Vikas/Downloads/otto")
+train<-read.csv("train.csv")
+str(train)
+library(randomForest)
+train_m<-train[2:95]
+str(train_m)
+test<-read.csv("test.csv")
+str(test)
+
+?randomForest
+model<-randomForest(target~., data = train, ntree=200, nodesize=25,keep.forest=TRUE )
+
+predict<-predict(model,newdata=test[2:94],type="prob")
+predict
+
+library(plyr)
+
+df <- data.frame(t(sapply(predict,c)))
+View(df)
+colname(df)
+colnames(df)
+colnames(df)<-c("Class_1","Class_2","Class_3","Class_4","Class_5","Class_6","Class_7","Class_8","Class_9")
+View(df)
+df$id<-test$id
+View(df)
+write.csv(df,file="sub1.csv",row.names=FALSE)
