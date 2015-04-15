@@ -1,0 +1,127 @@
+output of GBM
+
+=====================================================
+> print(objModel)
+Stochastic Gradient Boosting 
+
+61878 samples
+   93 predictors
+    9 classes: 'Class_1', 'Class_2', 'Class_3', 'Class_4', 'Class_5', 'Class_6', 'Class_7', 'Class_8', 'Class_9' 
+
+Pre-processing: centered, scaled 
+Resampling: Cross-Validated (3 fold) 
+
+Summary of sample sizes: 41252, 41251, 41253 
+
+Resampling results across tuning parameters:
+
+  interaction.depth  n.trees  Accuracy   Kappa      Accuracy SD   Kappa SD    
+  1                   50      0.7057436  0.6334240  0.0004777895  0.0007261230
+  1                  100      0.7323605  0.6687251  0.0013352149  0.0018286420
+  1                  150      0.7443680  0.6845793  0.0011992530  0.0015732192
+  2                   50      0.7384370  0.6769366  0.0013425578  0.0017310080
+  2                  100      0.7588966  0.7035421  0.0016928488  0.0022217384
+  2                  150      0.7687062  0.7162930  0.0012836616  0.0015938634
+  3                   50      0.7527878  0.6955076  0.0009603507  0.0013168245
+  3                  100      0.7703223  0.7182536  0.0007775868  0.0008505035
+  3                  150      0.7790976  0.7296601  0.0010115734  0.0014267087
+
+Tuning parameter 'shrinkage' was held constant at a value of 0.1
+Accuracy was used to select the optimal model using  the largest value.
+The final values used for the model were n.trees = 150, interaction.depth = 3 and shrinkage = 0.1. 
+> summary(objModel)
+            var      rel.inf
+feat_11 feat_11 16.620083100
+feat_60 feat_60 12.529318422
+feat_34 feat_34  8.669908552
+feat_14 feat_14  5.552115325
+feat_90 feat_90  5.063020841
+feat_15 feat_15  4.482386964
+feat_69 feat_69  3.999809342
+feat_40 feat_40  3.877814443
+feat_26 feat_26  3.670228923
+feat_75 feat_75  3.364207752
+feat_39 feat_39  3.037403218
+feat_36 feat_36  2.714903159
+feat_62 feat_62  2.370848668
+feat_42 feat_42  2.355632974
+feat_9   feat_9  2.314131376
+feat_68 feat_68  2.090582425
+feat_53 feat_53  1.507196212
+feat_59 feat_59  1.389942345
+feat_86 feat_86  1.335366036
+feat_43 feat_43  1.285815200
+feat_47 feat_47  1.173568032
+feat_78 feat_78  1.005009032
+feat_25 feat_25  0.784004858
+feat_91 feat_91  0.769795742
+feat_67 feat_67  0.764525554
+feat_50 feat_50  0.752224935
+feat_8   feat_8  0.679651002
+feat_72 feat_72  0.609705058
+feat_35 feat_35  0.596579500
+feat_17 feat_17  0.498563395
+feat_64 feat_64  0.440490209
+feat_88 feat_88  0.412853415
+feat_56 feat_56  0.384272018
+feat_76 feat_76  0.328368817
+feat_48 feat_48  0.322794713
+feat_30 feat_30  0.298418132
+feat_45 feat_45  0.271501145
+feat_20 feat_20  0.219229832
+feat_57 feat_57  0.210454489
+feat_55 feat_55  0.208858718
+feat_41 feat_41  0.202327650
+feat_54 feat_54  0.107682285
+feat_66 feat_66  0.105491269
+feat_23 feat_23  0.102484042
+feat_33 feat_33  0.090908782
+feat_83 feat_83  0.076103699
+feat_77 feat_77  0.063066134
+feat_32 feat_32  0.045210201
+feat_84 feat_84  0.040983895
+feat_13 feat_13  0.036713544
+feat_58 feat_58  0.036543063
+feat_18 feat_18  0.034163489
+feat_16 feat_16  0.029957452
+feat_89 feat_89  0.022937820
+feat_38 feat_38  0.013200339
+feat_24 feat_24  0.012203660
+feat_44 feat_44  0.009889567
+feat_5   feat_5  0.008549234
+feat_1   feat_1  0.000000000
+feat_2   feat_2  0.000000000
+feat_3   feat_3  0.000000000
+feat_4   feat_4  0.000000000
+feat_6   feat_6  0.000000000
+feat_7   feat_7  0.000000000
+feat_10 feat_10  0.000000000
+feat_12 feat_12  0.000000000
+feat_19 feat_19  0.000000000
+feat_21 feat_21  0.000000000
+feat_22 feat_22  0.000000000
+feat_27 feat_27  0.000000000
+feat_28 feat_28  0.000000000
+feat_29 feat_29  0.000000000
+feat_31 feat_31  0.000000000
+feat_37 feat_37  0.000000000
+feat_46 feat_46  0.000000000
+feat_49 feat_49  0.000000000
+feat_51 feat_51  0.000000000
+feat_52 feat_52  0.000000000
+feat_61 feat_61  0.000000000
+feat_63 feat_63  0.000000000
+feat_65 feat_65  0.000000000
+feat_70 feat_70  0.000000000
+feat_71 feat_71  0.000000000
+feat_73 feat_73  0.000000000
+feat_74 feat_74  0.000000000
+feat_79 feat_79  0.000000000
+feat_80 feat_80  0.000000000
+feat_81 feat_81  0.000000000
+feat_82 feat_82  0.000000000
+feat_85 feat_85  0.000000000
+feat_87 feat_87  0.000000000
+feat_92 feat_92  0.000000000
+feat_93 feat_93  0.000000000
+==========================================================
