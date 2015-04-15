@@ -24,3 +24,47 @@ View(df)
 df$id<-test$id
 View(df)
 write.csv(df,file="sub1.csv",row.names=FALSE)
+
+====================================================================================
+
+setwd("C:/Users/Vikas/Downloads/otto")
+train<-read.csv("train.csv")
+str(train)
+
+train_m<-train[2:95]
+str(train_m)
+test<-read.csv("test.csv")
+str(test)
+
+library(caret)
+library(pROC)
+
+outcomeName <- 'target'
+predictorsNames <- names(train_m)[names(train_m) != outcomeName]
+
+
+set.seed(1234)
+splitIndex <- createDataPartition(train_m[,outcomeName], p = .75, list = FALSE, times = 1)
+trainDF <- train_m[ splitIndex,]
+testDF  <- train_m[-splitIndex,]
+
+objControl <- trainControl(method='cv', number=3, returnResamp='none', classProbs = TRUE)
+
+objModel <- train(trainDF[,predictorsNames], trainDF[,outcomeName], 
+                  method='gbm', 
+                  trControl=objControl,  
+                  metric = "ROC",
+                  preProc = c("center", "scale"))
+
+
+summary(objModel)
+
+print(objModel)
+
+predictions <- predict(object=objModel, test[,predictorsNames], type='prob')
+head(predictions)
+df<-as.data.frame(predictions)
+View(df)
+df$id<-test$id
+View(df)
+write.csv(df,file="sub3.csv",row.names=FALSE)
