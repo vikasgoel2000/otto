@@ -1,0 +1,45 @@
+
+library(caTools)
+train<-read.csv("train.csv")
+test<-read.csv("test.csv")
+
+predictors <- 2:(ncol(train)-1) #ignore first column 'id'
+response <- ncol(train)
+
+
+split = sample.split(train$target, SplitRatio = 0.8)
+train_s = subset(train[2:95], split==TRUE)
+test_s = subset(train[2:95], split==FALSE)
+
+
+
+for (i in 1:10) {
+  rand_numtrees <- sample(200:500,1) ## 1 to 50 trees
+  rand_node <- sample(20:50,1) ## 5 to 15 max depth
+  m<-paste("model","_",i,sep="")  
+  
+  model_name <- paste0("RFModel_",i,
+                       "_ntrees",rand_numtrees,
+                       "_node",rand_node
+                       )
+					   
+   m <- randomForest(target~., data = train_s, ntree=rand_numtrees, nodesize=rand_node,keep.forest=TRUE )
+
+}
+
+
+for (i in 1:10) {
+  m<-paste("model","_",i,sep="")  
+p<-paste("predict","_",i,sep="")  
+p<-predict(m,newdata=test_s,type="raw")
+}
+
+library(gmodels)
+for (i in 1:10) {
+  m<-paste("model","_",i,sep="")  
+p<-paste("predict","_",i,sep="")  
+
+
+}
+
+CrossTable(sms_results$actual_type, sms_results$predict_type)
